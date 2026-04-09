@@ -53,6 +53,16 @@ try {
   await page.goto(resumeUrl, { waitUntil: 'networkidle' });
   await page.waitForLoadState('networkidle');
   await page.emulateMedia({ media: 'screen' });
+  await page.addStyleTag({
+    content: `#navbar,
+footer {
+  display: none !important;
+}
+
+.content-wrapper {
+  padding-top: 1.5rem !important;
+}`,
+  });
   await page.pdf({
     path: OUTPUT_FILE,
     format: 'A4',
