@@ -6,13 +6,12 @@
   <title>Aleksandr Detushev — Lead Game Designer</title>
   <meta name="description" content="Resume of Aleksandr Detushev, Lead Game Designer with 6+ years on Warspear Online." />
   <meta property="og:title" content="Aleksandr Detushev — Lead Game Designer" />
-  <meta property="og:description" content="Systemic design, live balance, class systems, MMORPG." />
+  <meta property="og:description" content="Systems design, live balance, class systems, progression, MMORPG." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Variables ─────────────────────────────────── */
     :root {
       --bg-primary:        #111318;
       --bg-secondary:      #1a1e26;
@@ -27,9 +26,9 @@
       --content-width:     860px;
     }
 
-    /* ── Reset ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
       background: var(--bg-primary);
@@ -38,7 +37,6 @@
       font-size: 15px;
     }
 
-    /* ── Navbar ────────────────────────────────────── */
     #navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -51,12 +49,14 @@
       background: transparent;
       transition: background 0.3s, border-bottom 0.3s;
     }
+
     #navbar.scrolled {
       background: rgba(17, 19, 24, 0.88);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
+
     .nav-name {
       font-size: 0.875rem;
       font-weight: 500;
@@ -64,11 +64,13 @@
       letter-spacing: 0.02em;
       white-space: nowrap;
     }
+
     .nav-links {
       list-style: none;
       display: flex;
       gap: 2rem;
     }
+
     .nav-links a {
       font-size: 0.875rem;
       font-weight: 500;
@@ -76,7 +78,9 @@
       text-decoration: none;
       transition: color 0.2s;
     }
+
     .nav-links a:hover { color: var(--accent); }
+
     .hamburger {
       display: none;
       background: none;
@@ -90,6 +94,7 @@
 
     @media (max-width: 600px) {
       .hamburger { display: block; }
+
       .nav-links {
         display: none;
         flex-direction: column;
@@ -104,32 +109,54 @@
         gap: 0.9rem;
         min-width: 200px;
       }
+
       .nav-links.open { display: flex; }
     }
 
-    /* ── Content wrapper ───────────────────────────── */
     .content-wrapper {
       max-width: var(--content-width);
       margin: 0 auto;
       padding: calc(var(--nav-height) + 2.5rem) 1.5rem 3rem;
     }
 
-    /* ── Typography ────────────────────────────────── */
     h1, h2, h3 {
       color: var(--heading-color);
       font-weight: 600;
       line-height: 1.2;
     }
+
     p { margin: 0.5em 0; }
-    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
-    a:hover { opacity: 0.8; text-decoration: underline; }
-    ul { padding-left: 1.4em; margin: 0.5em 0; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 1.4em;
+      margin: 0.5em 0;
+    }
+
     li { margin: 0.3em 0; }
     ul li::marker { color: var(--accent); }
-    strong { color: var(--heading-color); font-weight: 600; }
-    hr { border: none; border-bottom: 1px solid var(--border); margin: 2rem 0; }
 
-    /* ── Section header ────────────────────────────── */
+    strong {
+      color: var(--heading-color);
+      font-weight: 600;
+    }
+
+    hr {
+      border: none;
+      border-bottom: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
     .section-label {
       font-size: 0.7rem;
       font-weight: 600;
@@ -138,6 +165,7 @@
       color: var(--text-secondary);
       margin-bottom: 0.35rem;
     }
+
     .section-heading {
       font-size: 1.4rem;
       font-weight: 600;
@@ -146,10 +174,11 @@
       padding-bottom: 0.6rem;
       border-bottom: 1px solid var(--border);
     }
+
     section { margin: 2.75rem 0; }
 
-    /* ── Hero ──────────────────────────────────────── */
     .hero { padding-top: 0.5rem; }
+
     .hero-name {
       font-size: 2.2rem;
       font-weight: 600;
@@ -157,33 +186,41 @@
       letter-spacing: -0.02em;
       line-height: 1.1;
     }
+
     .hero-title {
       font-size: 1.1rem;
       color: var(--accent);
       font-weight: 500;
       margin: 0.3rem 0 0.5rem;
     }
+
     .hero-location {
       font-size: 0.875rem;
       color: var(--text-secondary);
       margin-bottom: 0.75rem;
     }
+
     .hero-contact {
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem 1.1rem;
       font-size: 0.875rem;
       align-items: center;
+      margin-top: 0.35rem;
     }
-    .hero-contact a { color: var(--accent); font-weight: 500; }
+
+    .hero-contact a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
     .hero-contact span { color: var(--text-secondary); }
+
     .hero hr { margin: 1.25rem 0 0; }
 
-    /* ── Summary ───────────────────────────────────── */
     #summary p { font-size: 0.95rem; }
     #summary p + p { margin-top: 0.6em; }
 
-    /* ── Experience cards ──────────────────────────── */
     .job-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border);
@@ -192,6 +229,7 @@
       padding: 1.1rem 1.25rem;
       margin: 0.9rem 0;
     }
+
     .job-header {
       display: flex;
       justify-content: space-between;
@@ -199,22 +237,30 @@
       gap: 1rem;
       margin-bottom: 0.6rem;
     }
+
     .job-title {
       font-size: 1rem;
       font-weight: 600;
       color: var(--heading-color);
     }
-    .job-meta { text-align: right; flex-shrink: 0; }
+
+    .job-meta {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
     .job-company {
       font-size: 0.85rem;
       font-weight: 500;
       color: var(--text-secondary);
     }
+
     .job-dates {
       font-size: 0.8rem;
       color: var(--text-secondary);
       margin-top: 0.1rem;
     }
+
     .job-card ul { font-size: 0.9rem; }
     .job-card li { margin: 0.35em 0; }
 
@@ -223,16 +269,17 @@
       .job-meta { text-align: left; }
     }
 
-    /* ── Impact grid ───────────────────────────────── */
     .impact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.6rem;
       margin-top: 0.5rem;
     }
+
     @media (max-width: 540px) {
       .impact-grid { grid-template-columns: 1fr; }
     }
+
     .impact-card {
       background: var(--bg-tertiary);
       border: 1px solid var(--border);
@@ -244,16 +291,17 @@
       line-height: 1.45;
     }
 
-    /* ── Tools & Languages ─────────────────────────── */
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       margin-top: 1.75rem;
     }
+
     @media (max-width: 540px) {
       .two-col { grid-template-columns: 1fr; gap: 1.25rem; }
     }
+
     .plain-list {
       list-style: none;
       padding: 0;
@@ -262,43 +310,52 @@
       flex-direction: column;
       gap: 0.35rem;
     }
+
     .plain-list li {
       font-size: 0.9rem;
       color: var(--text-primary);
       padding-left: 1rem;
       position: relative;
     }
+
     .plain-list li::before {
       content: '–';
       color: var(--text-secondary);
       position: absolute;
       left: 0;
     }
-    .lang-level { color: var(--text-secondary); font-size: 0.85rem; }
 
-    /* ── Education ─────────────────────────────────── */
+    .lang-level {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
     .edu-school {
       font-weight: 600;
       color: var(--heading-color);
       font-size: 0.95rem;
     }
+
     .edu-degree {
       font-size: 0.875rem;
       color: var(--text-secondary);
       margin-top: 0.2rem;
     }
 
-    /* ── Footer ────────────────────────────────────── */
     footer {
       text-align: center;
       padding: 1.5rem 1rem 2.5rem;
       font-size: 0.8rem;
       color: var(--text-secondary);
     }
-    footer a { color: var(--text-secondary); }
-    footer a:hover { color: var(--accent); text-decoration: underline; }
 
-    /* ── Print ─────────────────────────────────────── */
+    footer a { color: var(--text-secondary); }
+
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
     @media print {
       :root {
         --bg-primary:       #ffffff;
@@ -311,6 +368,7 @@
         --accent-secondary: #6b21d0;
         --border:           #cccccc;
       }
+
       body { font-size: 11pt; line-height: 1.5; }
       #navbar, footer { display: none !important; }
       .content-wrapper { padding-top: 0; max-width: 100%; }
@@ -322,7 +380,6 @@
 </head>
 <body>
 
-<!-- ── Navbar ───────────────────────────────────────── -->
 <nav id="navbar">
   <span class="nav-name">Aleksandr Detushev</span>
   <button class="hamburger" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
@@ -330,17 +387,16 @@
     <li><a href="#summary">Summary</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li>
   </ul>
 </nav>
 
 <div class="content-wrapper">
 
-  <!-- ── Hero ─────────────────────────────────────── -->
   <header class="hero">
     <div class="hero-name">Aleksandr Detushev</div>
     <div class="hero-title">Lead Game Designer</div>
     <div class="hero-location">Podgorica, Montenegro &nbsp;·&nbsp; Open to relocation</div>
+
     <div class="hero-contact">
       <span>+382-68-541-158</span>
       <span>·</span>
@@ -350,18 +406,34 @@
       <span>·</span>
       <a href="https://akiokoneko.github.io/portfolio/" target="_blank" rel="noopener">Game Design Portfolio ↗</a>
     </div>
+
+    <div class="hero-contact">
+      <span>Project:</span>
+      <a href="https://warspear-online.com/en/" target="_blank" rel="noopener">Warspear Online ↗</a>
+      <span>·</span>
+      <a href="https://play.google.com/store/apps/details?id=com.aigrind.warspear" target="_blank" rel="noopener">Google Play ↗</a>
+      <span>·</span>
+      <a href="https://apps.apple.com/app/warspear-online/id444772528" target="_blank" rel="noopener">App Store ↗</a>
+    </div>
+
     <hr />
   </header>
 
-  <!-- ── Summary ──────────────────────────────────── -->
   <section id="summary">
     <div class="section-label">Summary</div>
     <div class="section-heading">Profile</div>
-    <p>Lead Game Designer with 6+ years of experience on Warspear Online, a live MMORPG with a long-running player base. Focused on class systems, long-term balance, faction dynamics, and live content. Currently leading a team of 3 designers and acting as the main design bridge between leadership, product, engineering, art, and narrative.</p>
-    <p>Strong background in systemic design, live balance, and player psychology in progression-heavy games.</p>
+    <p>
+      Lead Game Designer with 6+ years of experience on Warspear Online, a live MMORPG with a long-running player base,
+      a 20-class roster, large-scale PvP, and progression-heavy systems. Focused on class design, long-term balance,
+      player-facing progression, guild and social systems, and live content design in a high-investment environment.
+    </p>
+    <p>
+      Currently leading a team of 3 designers while remaining hands-on with feature direction, system design, documentation,
+      and cross-functional execution. Strong background in systemic design, live balance, and player psychology in games
+      where long-term progression and player trust heavily shape design decisions.
+    </p>
   </section>
 
-  <!-- ── Experience ───────────────────────────────── -->
   <section id="experience">
     <div class="section-label">Experience</div>
     <div class="section-heading">Work History</div>
@@ -370,16 +442,18 @@
       <div class="job-header">
         <div class="job-title">Lead Game Designer</div>
         <div class="job-meta">
-          <div class="job-company">Aigrind</div>
+          <div class="job-company">Aigrind — Warspear Online</div>
           <div class="job-dates">2022 – Present</div>
         </div>
       </div>
       <ul>
-        <li>Lead a team of 3 game designers and coordinate their work across live updates and major features.</li>
-        <li>Act as the primary communication bridge between design, leadership, product management, engineering, art, and narrative.</li>
-        <li>Oversee class balance (20+ classes), faction systems, guild systems, talents, raids, and live events.</li>
-        <li>Introduced clearer internal design processes and feature reviews to improve production flow and reduce friction between departments.</li>
-        <li>Help maintain balance changes in a monetised progression environment where player investment is high and changes must be handled carefully.</li>
+        <li>Lead a team of 3 game designers and coordinate their work across live updates, feature ownership, and cross-team delivery.</li>
+        <li>Act as the primary design bridge between leadership, product management, engineering, art, UI/UX, and narrative.</li>
+        <li>Own and supervise high-impact areas including class balance across a 20-class live MMORPG roster, guild systems, talent systems, raids, events, and repeatable progression content.</li>
+        <li>Help shape feature scope, priorities, and implementation logic from concept through release, balancing creative goals with production realities.</li>
+        <li>Improved internal design flow through clearer reviews, feedback loops, and cross-department alignment, reducing friction during live production.</li>
+        <li>Support balance changes in a monetised progression environment where character investment is high and changes must preserve long-term player trust.</li>
+        <li>Continued hands-on systems design work while in a leadership role, contributing directly to feature structure, gameplay logic, and design documentation.</li>
       </ul>
     </div>
 
@@ -387,19 +461,18 @@
       <div class="job-header">
         <div class="job-title">Senior Game Designer</div>
         <div class="job-meta">
-          <div class="job-company">Aigrind</div>
+          <div class="job-company">Aigrind — Warspear Online</div>
           <div class="job-dates">2019 – 2022</div>
         </div>
       </div>
       <ul>
-        <li>Designed and balanced 4 new playable classes.</li>
-        <li>Expanded gameplay diversity and replay value.</li>
-        <li>Opened new equipment paths and monetisation vectors.</li>
-        <li>Improved faction balance distribution.</li>
-        <li>Led large-scale class rebalance initiatives in a game where character progression requires significant long-term investment.</li>
-        <li>Balanced introducing new metas while avoiding player backlash from nerfs.</li>
-        <li>Maintained player trust during balance shifts.</li>
-        <li>Designed and implemented a talent system used across multiple classes to increase build depth and long-term engagement.</li>
+        <li>Designed and balanced 4 new playable classes for a 20-class live MMORPG roster.</li>
+        <li>Delivered Templar and Chieftain in 2020, then Beastmaster and Reaper in 2022, shaping class identity, skill kits, gameplay roles, and long-term live balance considerations.</li>
+        <li>Expanded gameplay diversity and replay value by opening new build paths, role coverage, and stronger class differentiation across the meta.</li>
+        <li>Created new equipment and progression demand around fresh classes without undermining existing long-term player investment.</li>
+        <li>Led large-scale class rebalance initiatives in a game where progression depth makes disruptive balance changes especially sensitive.</li>
+        <li>Balanced the introduction of new metas while avoiding unnecessary backlash from nerfs and preserving player trust during class shifts.</li>
+        <li>Worked on the Talent System as a long-term progression pillar, increasing build depth, class variety, and recurring engagement opportunities.</li>
       </ul>
     </div>
 
@@ -407,41 +480,67 @@
       <div class="job-header">
         <div class="job-title">Game Designer</div>
         <div class="job-meta">
-          <div class="job-company">Aigrind</div>
+          <div class="job-company">Aigrind — Warspear Online</div>
           <div class="job-dates">2017 – 2019</div>
         </div>
       </div>
       <ul>
-        <li>Designed seasonal events and dungeons.</li>
-        <li>Reworked dungeon structure and encounter patterns to avoid repetition across yearly events.</li>
-        <li>Introduced clearer gameplay patterns and encounter variety, increasing perceived content freshness over time.</li>
-        <li>Collaborated closely with programmers and artists to ship content on tight live schedules.</li>
+        <li>Designed seasonal events and dungeons for a live MMORPG with a regular update cadence.</li>
+        <li>Reworked dungeon structure and encounter patterns to reduce repetition across yearly content cycles and keep repeatable content feeling fresher.</li>
+        <li>Introduced clearer gameplay patterns, pacing, and encounter variety to improve content readability and perceived novelty over time.</li>
+        <li>Prepared implementation-ready design documentation and collaborated closely with programmers and artists to ship content under tight live deadlines.</li>
       </ul>
     </div>
   </section>
 
-  <!-- ── Skills ───────────────────────────────────── -->
+  <section>
+    <div class="section-label">Selected Systems</div>
+    <div class="section-heading">Feature Areas</div>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <strong>Talent System</strong><br />
+        Worked on a long-term progression system designed to increase build diversity, extend character growth, and create stronger ties between class identity and repeatable content.
+      </div>
+      <div class="impact-card">
+        <strong>Competitive Guild Content</strong><br />
+        Contributed to guild-focused systems and endgame structures that supported organized play, longer-term goals, and stronger social retention.
+      </div>
+      <div class="impact-card">
+        <strong>Class Ecosystem & Live Balance</strong><br />
+        Managed class identity and long-term balance in a 20-class live game where player progression depth makes balance changes especially high stakes.
+      </div>
+      <div class="impact-card">
+        <strong>Live Content Design</strong><br />
+        Built and iterated on events, dungeons, and repeatable features within a live production environment with frequent updates and ongoing post-release support.
+      </div>
+    </div>
+  </section>
+
   <section id="skills">
     <div class="section-label">Skills</div>
     <div class="section-heading">Selected Impact Areas &amp; Tools</div>
 
     <div class="impact-grid">
-      <div class="impact-card">Class ecosystem design in a 20+ class live MMORPG.</div>
-      <div class="impact-card">Balance in high-investment progression systems.</div>
-      <div class="impact-card">Faction equilibrium and class distribution management.</div>
-      <div class="impact-card">Designing systems that create monetisation opportunities without breaking player trust.</div>
-      <div class="impact-card">Cross-department coordination in live production.</div>
+      <div class="impact-card">Class ecosystem design and balance in a 20-class live MMORPG.</div>
+      <div class="impact-card">Long-term progression and build diversity systems.</div>
+      <div class="impact-card">Guild, social, and repeatable engagement features.</div>
+      <div class="impact-card">PvE and PvP systems design for live content.</div>
+      <div class="impact-card">Player-trust-aware monetisation thinking.</div>
+      <div class="impact-card">Cross-functional leadership in live production.</div>
     </div>
 
     <div class="two-col">
       <div>
         <div class="section-label">Tools</div>
         <ul class="plain-list">
-          <li>Confluence, Redmine</li>
-          <li>MySQL (data queries for balance, monsters, and skill data extraction)</li>
-          <li>Version control tools</li>
+          <li>Confluence</li>
+          <li>Redmine</li>
+          <li>MySQL Workbench</li>
+          <li>TortoiseSVN</li>
         </ul>
       </div>
+
       <div>
         <div class="section-label">Languages</div>
         <ul class="plain-list">
@@ -452,28 +551,27 @@
     </div>
   </section>
 
-  <!-- ── Education ────────────────────────────────── -->
   <section id="education">
     <div class="section-label">Education</div>
-    <div class="section-heading">Academic Background</div>
-    <div class="edu-school">State University of Aerospace Instrumentation</div>
+    <div class="edu-school">Saint Petersburg State University of Aerospace Instrumentation (SUAI)</div>
     <div class="edu-degree">Computer Science (unfinished degree)</div>
   </section>
 
-</div><!-- /content-wrapper -->
+</div>
 
 <footer>
-  © 2025 Aleksandr Detushev &nbsp;·&nbsp;
+  © 2026 Aleksandr Detushev &nbsp;·&nbsp;
   <a href="https://akiokoneko.github.io/portfolio/" target="_blank" rel="noopener">Portfolio ↗</a>
 </footer>
 
 <script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+    if (window.scrollY > 12) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
   });
 </script>
 
