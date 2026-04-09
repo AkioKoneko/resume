@@ -9,11 +9,6 @@ This repository contains the live HTML resume of Aleksandr Detushev, Lead Game D
 - **[Portfolio](https://akiokoneko.github.io/portfolio/)**
 - **[LinkedIn](https://www.linkedin.com/in/aleksandr-detushev-aa2945234)**
 
-## Contents
-
-- `index.html` — live resume page
-- `Aleksandr_Detushev_Resume.pdf` — downloadable PDF version
-
 ## Project Links
 
 - Live resume: https://akiokoneko.github.io/resume/
