@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - index.html
-      - scripts/generate-pdf.mjs
-      - package.json
-      - .github/workflows/generate-resume-pdf.yml
-    paths-ignore:
-      - Aleksandr_Detushev_Resume.pdf
+      - 'index.html'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'README.md'
+      - '.github/workflows/generate-resume-pdf.yml'
   workflow_dispatch:
 
 permissions:
