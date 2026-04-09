@@ -63,6 +63,7 @@
       color: var(--text-secondary);
       letter-spacing: 0.02em;
       white-space: nowrap;
+      text-decoration: none;
     }
 
     .nav-links {
@@ -94,23 +95,24 @@
 
     @media (max-width: 600px) {
       .hamburger { display: block; }
+      .nav-name { display: none; }
 
       .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: var(--nav-height);
-        right: 0;
+        right: 1rem;
         background: var(--bg-secondary);
         border: 1px solid var(--border);
-        border-top: none;
-        border-radius: 0 0 10px 10px;
-        padding: 1rem 1.5rem;
-        gap: 0.9rem;
-        min-width: 200px;
+        border-radius: 10px;
+        padding: 0.65rem 0.9rem;
+        gap: 0.5rem;
+        min-width: 160px;
       }
 
       .nav-links.open { display: flex; }
+      .nav-links li { margin: 0; }
     }
 
     .content-wrapper {
@@ -157,15 +159,6 @@
       margin: 2rem 0;
     }
 
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-secondary);
-      margin-bottom: 0.35rem;
-    }
-
     .section-heading {
       font-size: 1.4rem;
       font-weight: 600;
@@ -189,9 +182,16 @@
 
     .hero-title {
       font-size: 1.1rem;
-      color: var(--accent);
+      color: var(--text-primary);
       font-weight: 500;
       margin: 0.3rem 0 0.5rem;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 0.35rem;
     }
 
     .hero-location {
@@ -217,6 +217,19 @@
     .hero-contact span { color: var(--text-secondary); }
 
     .hero hr { margin: 1.25rem 0 0; }
+
+    @media (max-width: 600px) {
+      .hero-contact {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+        margin-top: 0.8rem;
+      }
+
+      .hero-contact .separator {
+        display: none;
+      }
+    }
 
     #summary p { font-size: 0.95rem; }
     #summary p + p { margin-top: 0.6em; }
@@ -349,13 +362,6 @@
       color: var(--text-secondary);
     }
 
-    footer a { color: var(--text-secondary); }
-
-    footer a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
-
     @media print {
       :root {
         --bg-primary:       #ffffff;
@@ -381,7 +387,7 @@
 <body>
 
 <nav id="navbar">
-  <span class="nav-name">Aleksandr Detushev</span>
+  <a class="nav-name" href="#top">Aleksandr Detushev</a>
   <button class="hamburger" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <ul class="nav-links">
     <li><a href="#summary">Summary</a></li>
@@ -390,7 +396,7 @@
   </ul>
 </nav>
 
-<div class="content-wrapper">
+<div class="content-wrapper" id="top">
 
   <header class="hero">
     <div class="hero-name">Aleksandr Detushev</div>
@@ -399,22 +405,23 @@
 
     <div class="hero-contact">
       <span>+382-68-541-158</span>
-      <span>·</span>
+      <span class="separator">·</span>
       <a href="mailto:Sashadetush@gmail.com">Sashadetush@gmail.com</a>
-      <span>·</span>
+    </div>
+
+    <div class="hero-contact">
       <a href="https://www.linkedin.com/in/aleksandr-detushev-aa2945234" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <span>·</span>
+      <span class="separator">·</span>
       <a href="https://akiokoneko.github.io/portfolio/" target="_blank" rel="noopener">Game Design Portfolio ↗</a>
-      <span>·</span>
+      <span class="separator">·</span>
       <a href="./Aleksandr_Detushev_Resume.pdf">Download PDF</a>
     </div>
 
     <div class="hero-contact">
-      <span>Project:</span>
-      <a href="https://warspear-online.com/en/" target="_blank" rel="noopener">Warspear Online ↗</a>
-      <span>·</span>
+      <a href="https://warspear-online.com/en/" target="_blank" rel="noopener">Project: Warspear Online ↗</a>
+      <span class="separator">·</span>
       <a href="https://play.google.com/store/apps/details?id=com.aigrind.warspear" target="_blank" rel="noopener">Google Play ↗</a>
-      <span>·</span>
+      <span class="separator">·</span>
       <a href="https://apps.apple.com/app/warspear-online/id444772528" target="_blank" rel="noopener">App Store ↗</a>
     </div>
 
@@ -422,7 +429,6 @@
   </header>
 
   <section id="summary">
-    <div class="section-label">Summary</div>
     <div class="section-heading">Profile</div>
     <p>
       Lead Game Designer with 6+ years of experience on Warspear Online, a live MMORPG with a long-running player base,
@@ -437,8 +443,7 @@
   </section>
 
   <section id="experience">
-    <div class="section-label">Experience</div>
-    <div class="section-heading">Work History</div>
+    <div class="section-heading">Work Experience</div>
 
     <div class="job-card">
       <div class="job-header">
@@ -453,9 +458,9 @@
         <li>Act as the primary design bridge between leadership, product management, engineering, art, UI/UX, and narrative.</li>
         <li>Own and supervise high-impact areas including class balance across a 20-class live MMORPG roster, guild systems, talent systems, raids, events, and repeatable progression content.</li>
         <li>Help shape feature scope, priorities, and implementation logic from concept through release, balancing creative goals with production realities.</li>
-        <li>Improved internal design flow through clearer reviews, feedback loops, and cross-department alignment, reducing friction during live production.</li>
+        <li>Improve internal design flow through clearer reviews, feedback loops, and cross-department alignment, reducing friction during live production.</li>
         <li>Support balance changes in a monetised progression environment where character investment is high and changes must preserve long-term player trust.</li>
-        <li>Continued hands-on systems design work while in a leadership role, contributing directly to feature structure, gameplay logic, and design documentation.</li>
+        <li>Contribute directly to systems design, feature structure, gameplay logic, and design documentation while in a leadership role.</li>
       </ul>
     </div>
 
@@ -472,7 +477,7 @@
         <li>Delivered Templar and Chieftain in 2020, then Beastmaster and Reaper in 2022, shaping class identity, skill kits, gameplay roles, and long-term live balance considerations.</li>
         <li>Expanded gameplay diversity and replay value by opening new build paths, role coverage, and stronger class differentiation across the meta.</li>
         <li>Created new equipment and progression demand around fresh classes without undermining existing long-term player investment.</li>
-        <li>Led large-scale class rebalance initiatives in a game where progression depth makes disruptive balance changes especially sensitive.</li>
+        <li>Led large-scale class rebalance initiatives in a game where progression depth made disruptive balance changes especially sensitive.</li>
         <li>Balanced the introduction of new metas while avoiding unnecessary backlash from nerfs and preserving player trust during class shifts.</li>
         <li>Worked on the Talent System as a long-term progression pillar, increasing build depth, class variety, and recurring engagement opportunities.</li>
       </ul>
@@ -496,8 +501,7 @@
   </section>
 
   <section>
-    <div class="section-label">Selected Systems</div>
-    <div class="section-heading">Feature Areas</div>
+    <div class="section-heading">Selected Systems</div>
 
     <div class="impact-grid">
       <div class="impact-card">
@@ -520,8 +524,7 @@
   </section>
 
   <section id="skills">
-    <div class="section-label">Skills</div>
-    <div class="section-heading">Selected Impact Areas &amp; Tools</div>
+    <div class="section-heading">Skills &amp; Tools</div>
 
     <div class="impact-grid">
       <div class="impact-card">Class ecosystem design and balance in a 20-class live MMORPG.</div>
@@ -554,7 +557,7 @@
   </section>
 
   <section id="education">
-    <div class="section-label">Education</div>
+    <div class="section-heading">Education</div>
     <div class="edu-school">Saint Petersburg State University of Aerospace Instrumentation (SUAI)</div>
     <div class="edu-degree">Computer Science (unfinished degree)</div>
   </section>
@@ -562,8 +565,7 @@
 </div>
 
 <footer>
-  © 2026 Aleksandr Detushev &nbsp;·&nbsp;
-  <a href="https://akiokoneko.github.io/portfolio/" target="_blank" rel="noopener">Portfolio ↗</a>
+  © 2026 Aleksandr Detushev
 </footer>
 
 <script>
