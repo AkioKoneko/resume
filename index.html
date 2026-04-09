@@ -109,8 +109,21 @@
 
     @media (max-width: 600px) {
       #navbar {
+        position: static;
+        height: 0;
+        padding: 0;
         justify-content: flex-end;
-        padding: 0 1rem;
+        background: transparent;
+        border: 0;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+
+      #navbar.scrolled {
+        background: transparent;
+        border: 0;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
       }
 
       .hamburger { display: inline-flex; }
@@ -144,6 +157,12 @@
       max-width: var(--content-width);
       margin: 0 auto;
       padding: calc(var(--nav-height) + 2.5rem) 1.5rem 3rem;
+    }
+
+    @media (max-width: 600px) {
+      .content-wrapper {
+        padding-top: 1rem;
+      }
     }
 
     h1, h2, h3 {
