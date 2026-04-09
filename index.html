@@ -82,33 +82,58 @@
 
     .nav-links a:hover { color: var(--accent); }
 
+    .mobile-only { display: none; }
+
+    @media (max-width: 600px) {
+      .mobile-only { display: list-item; }
+    }
+
     .hamburger {
       display: none;
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      font-size: 1.35rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 1.1rem;
       cursor: pointer;
-      padding: 4px 8px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
       line-height: 1;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0.65rem;
+      right: 1rem;
+      z-index: 140;
     }
 
     @media (max-width: 600px) {
-      .hamburger { display: block; }
+      #navbar {
+        justify-content: flex-end;
+        padding: 0 1rem;
+      }
+
+      .hamburger { display: inline-flex; }
       .nav-name { display: none; }
 
       .nav-links {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: var(--nav-height);
+        position: fixed;
+        top: calc(0.65rem + 46px);
         right: 1rem;
         background: var(--bg-secondary);
         border: 1px solid var(--border);
         border-radius: 10px;
-        padding: 0.65rem 0.9rem;
-        gap: 0.5rem;
-        min-width: 160px;
+        padding: 0.45rem;
+        gap: 0.15rem;
+        min-width: 170px;
+        z-index: 130;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.4rem 0.55rem;
       }
 
       .nav-links.open { display: flex; }
@@ -200,7 +225,7 @@
       margin-bottom: 0.75rem;
     }
 
-    .hero-contact {
+     .hero-contact {
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem 1.1rem;
@@ -218,21 +243,29 @@
 
     .hero hr { margin: 1.25rem 0 0; }
 
+    .hero-contact-block + .hero-contact-block {
+      margin-top: 0.2rem;
+    }
+
     @media (max-width: 600px) {
       .hero-contact {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.35rem;
-        margin-top: 0.8rem;
+        margin-top: 0.35rem;
       }
 
       .hero-contact .separator {
         display: none;
       }
+
+      .hero-contact-block + .hero-contact-block {
+        margin-top: 0.85rem;
+      }
     }
 
-    #summary p { font-size: 0.95rem; }
-    #summary p + p { margin-top: 0.6em; }
+    #profile p { font-size: 0.95rem; }
+    #profile p + p { margin-top: 0.6em; }
 
     .job-card {
       background: var(--bg-secondary);
@@ -388,11 +421,12 @@
 
 <nav id="navbar">
   <a class="nav-name" href="#top">Aleksandr Detushev</a>
-  <button class="hamburger" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-  <ul class="nav-links">
-    <li><a href="#summary">Summary</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+  <ul class="nav-links" id="nav-links">
+    <li class="mobile-only"><a href="#top">Top</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#experience">Work Experience</a></li>
+    <li><a href="#skills">Skills &amp; Tools</a></li>
   </ul>
 </nav>
 
@@ -403,13 +437,13 @@
     <div class="hero-title">Lead Game Designer</div>
     <div class="hero-location">Podgorica, Montenegro &nbsp;·&nbsp; Open to relocation</div>
 
-    <div class="hero-contact">
+    <div class="hero-contact hero-contact-block">
       <span>+382-68-541-158</span>
       <span class="separator">·</span>
       <a href="mailto:Sashadetush@gmail.com">Sashadetush@gmail.com</a>
     </div>
 
-    <div class="hero-contact">
+    <div class="hero-contact hero-contact-block">
       <a href="https://www.linkedin.com/in/aleksandr-detushev-aa2945234" target="_blank" rel="noopener">LinkedIn ↗</a>
       <span class="separator">·</span>
       <a href="https://akiokoneko.github.io/portfolio/" target="_blank" rel="noopener">Game Design Portfolio ↗</a>
@@ -417,8 +451,9 @@
       <a href="./Aleksandr_Detushev_Resume.pdf">Download PDF</a>
     </div>
 
-    <div class="hero-contact">
-      <a href="https://warspear-online.com/en/" target="_blank" rel="noopener">Project: Warspear Online ↗</a>
+    <div class="hero-contact hero-contact-block">
+      <span>Project:</span>
+      <a href="https://warspear-online.com/en/" target="_blank" rel="noopener">Warspear Online ↗</a>
       <span class="separator">·</span>
       <a href="https://play.google.com/store/apps/details?id=com.aigrind.warspear" target="_blank" rel="noopener">Google Play ↗</a>
       <span class="separator">·</span>
@@ -428,7 +463,7 @@
     <hr />
   </header>
 
-  <section id="summary">
+  <section id="profile">
     <div class="section-heading">Profile</div>
     <p>
       Lead Game Designer with 6+ years of experience on Warspear Online, a live MMORPG with a long-running player base,
@@ -570,11 +605,34 @@
 
 <script>
   const navbar = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 12) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
+    }
+  });
+
+  hamburger.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
     }
   });
 </script>
