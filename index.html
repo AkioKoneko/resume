@@ -3,823 +3,1258 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aleksandr Detushev — Lead Game Designer</title>
-  <meta name="description" content="Resume of Aleksandr Detushev, Lead Game Designer with 6+ years in MMORPG, Live Ops, systems design, economy, and progression." />
-  <meta property="og:title" content="Aleksandr Detushev — Lead Game Designer" />
-  <meta property="og:description" content="MMORPG, Live Ops, systems design, economy, progression, class balance, and team leadership." />
+  <title>Aleksandr Detushev | Lead Game Designer</title>
+  <meta
+    name="description"
+    content="Resume of Aleksandr Detushev, Lead Game Designer with 8+ years in live-service MMORPG systems, content, balance, tools, and team leadership."
+  />
+  <meta property="og:title" content="Aleksandr Detushev | Lead Game Designer" />
+  <meta
+    property="og:description"
+    content="Live-service MMORPG systems, content, balance, tools, and team leadership."
+  />
   <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#141515" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f3efe7" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23e57b4c'/%3E%3Cpath d='M18 48 31 15h3l13 33h-7l-3-8H27l-3 8h-6Zm11-14h6l-3-9-3 9Z' fill='white'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap"
+    rel="stylesheet"
+  />
   <script>
     (function () {
-      const THEME_KEY = 'portfolio_theme';
-      const savedTheme = localStorage.getItem(THEME_KEY);
-      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      const theme = savedTheme || (prefersLight ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', theme);
+      const key = "resume_theme";
+      const savedTheme = localStorage.getItem(key);
+      const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.dataset.theme = savedTheme || systemTheme;
     })();
   </script>
   <style>
     :root {
-      --accent:            #c97850;
-      --accent-secondary:  #e3a98a;
-      --bg-primary:        #141211;
-      --bg-secondary:      #1d1a18;
-      --bg-tertiary:       #26221f;
-      --text-primary:      #f2ede8;
-      --text-secondary:    #b8aaa0;
-      --border:            #3a312c;
-      --heading-color:     #fff7ef;
-      --surface-shadow:    0 12px 28px rgba(8, 6, 5, 0.25);
-      --surface-inset:     inset 0 1px 0 rgba(255, 240, 230, 0.04);
-      --floating-surface:  rgba(29, 26, 24, 0.95);
-      --nav-height:        56px;
-      --content-width:     860px;
+      color-scheme: dark;
+      --paper: #141515;
+      --paper-raised: #1b1d1c;
+      --ink: #f2eee6;
+      --muted: #aaa89f;
+      --rule: #353833;
+      --accent: #e57b4c;
+      --accent-soft: #f0b18f;
+      --signal: #a9cdbb;
+      --atlas-line: rgba(169, 205, 187, 0.18);
+      --atlas-accent: rgba(229, 123, 76, 0.42);
+      --nav-surface: rgba(20, 21, 21, 0.94);
+      --content-width: 980px;
+      --nav-height: 62px;
+      --ease-out: cubic-bezier(0.22, 0.8, 0.22, 1);
     }
 
-    :root[data-theme='light'] {
-      --accent:            #b46037;
-      --accent-secondary:  #d18764;
-      --bg-primary:        #f8f3ee;
-      --bg-secondary:      #ffffff;
-      --bg-tertiary:       #f4ebe2;
-      --text-primary:      #2d2018;
-      --text-secondary:    #7f6658;
-      --border:            #dbc8bb;
-      --heading-color:     #26180f;
-      --surface-shadow:    0 10px 22px rgba(74, 49, 35, 0.12);
-      --surface-inset:     inset 0 1px 0 rgba(255, 255, 255, 0.85);
-      --floating-surface:  rgba(255, 255, 255, 0.98);
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --paper: #f3efe7;
+      --paper-raised: #fbf8f2;
+      --ink: #252620;
+      --muted: #686b62;
+      --rule: #c9c5ba;
+      --accent: #bd4e27;
+      --accent-soft: #9a5439;
+      --signal: #2f6e56;
+      --atlas-line: rgba(47, 110, 86, 0.23);
+      --atlas-accent: rgba(189, 78, 39, 0.4);
+      --nav-surface: rgba(243, 239, 231, 0.94);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.65;
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
       font-size: 15px;
-      transition: background-color 0.2s ease, color 0.2s ease;
+      line-height: 1.58;
+      text-rendering: optimizeLegibility;
     }
 
-    #navbar {
+    body::after {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      z-index: 300;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.1'/%3E%3C/svg%3E");
+      content: "";
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+      opacity: 0.1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 0.2em;
+    }
+
+    a:hover {
+      color: var(--accent-soft);
+    }
+
+    a,
+    button {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: color-mix(in srgb, var(--accent) 16%, transparent);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--signal);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 500;
+      transform: translateY(-180%);
+      padding: 0.55rem 0.8rem;
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 0.25rem;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 200;
       height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2rem;
-      z-index: 200;
-      background: transparent;
-      transition: background 0.3s, border-bottom 0.3s;
+      gap: 1rem;
+      padding: 0 2.25rem;
+      background: var(--nav-surface);
+      border-bottom: 1px solid transparent;
+      backdrop-filter: blur(12px);
+      transition: border-color 160ms ease;
     }
 
-    #navbar.scrolled {
-      background: var(--floating-surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+    .site-nav.is-scrolled {
+      border-bottom-color: var(--rule);
     }
 
     .nav-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
       text-decoration: none;
+      text-transform: uppercase;
     }
 
-    .nav-right {
+    .nav-name::before {
+      width: 0.46rem;
+      height: 0.46rem;
+      border: 1px solid var(--signal);
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent) 0 30%, transparent 34%);
+      content: "";
+    }
+
+    .nav-actions,
+    .nav-links {
       display: flex;
       align-items: center;
+    }
+
+    .nav-actions {
       gap: 1.1rem;
     }
 
     .nav-links {
+      gap: 1.15rem;
+      margin: 0;
+      padding: 0;
       list-style: none;
-      display: flex;
-      gap: 1.1rem;
     }
 
     .nav-links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    .theme-toggle {
+      min-height: 44px;
       display: inline-flex;
       align-items: center;
-      border: 1px solid var(--border);
-      background: var(--bg-secondary);
-      border-radius: 999px;
-      padding: 0.2rem;
-      gap: 0.2rem;
-      box-shadow: var(--surface-inset);
-    }
-
-    .theme-option {
-      border: 0;
-      background: transparent;
-      color: var(--text-secondary);
-      border-radius: 999px;
-      font-size: 0.72rem;
+      color: var(--muted);
+      font-size: 0.82rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.24rem 0.6rem;
-      cursor: pointer;
-    }
-
-    .theme-option.is-active {
-      background: var(--accent);
-      color: #fff8f1;
-    }
-
-    .mobile-only,
-    .mobile-menu-toggle,
-    .mobile-menu {
-      display: none;
-    }
-
-    @media (max-width: 600px) {
-      .mobile-only { display: list-item; }
-    }
-
-    @media (max-width: 600px) {
-      #navbar {
-        position: static;
-        height: 0;
-        padding: 0;
-        justify-content: flex-end;
-        background: transparent;
-        border: 0;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-      }
-
-      #navbar.scrolled {
-        background: transparent;
-        border: 0;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-      }
-
-      .nav-name { display: none; }
-      .theme-toggle { display: none; }
-      .nav-right { display: none; }
-
-      .mobile-menu-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 0.65rem;
-        right: 1rem;
-        width: 42px;
-        height: 42px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: var(--floating-surface);
-        color: var(--text-primary);
-        box-shadow: var(--surface-inset), var(--surface-shadow);
-        z-index: 240;
-      }
-
-      .mobile-menu {
-        position: fixed;
-        top: calc(0.65rem + 46px);
-        right: 1rem;
-        list-style: none;
-        background: var(--floating-surface);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 0.5rem;
-        min-width: 190px;
-        box-shadow: var(--surface-inset), var(--surface-shadow);
-        z-index: 230;
-      }
-
-      .mobile-menu.open {
-        display: block;
-      }
-
-      .mobile-menu a {
-        display: block;
-        padding: 0.42rem 0.6rem;
-        font-size: 0.88rem;
-      }
-
-      .mobile-theme {
-        list-style: none;
-        margin-top: 0.25rem;
-        padding-top: 0.45rem;
-        border-top: 1px solid var(--border);
-      }
-
-      .mobile-theme-label {
-        display: block;
-        font-size: 0.68rem;
-        text-transform: uppercase;
-        letter-spacing: 0.09em;
-        color: var(--text-secondary);
-        margin-bottom: 0.45rem;
-        padding-left: 0.2rem;
-      }
-
-      .mobile-theme .theme-toggle {
-        display: inline-flex;
-      }
-    }
-
-    .content-wrapper {
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: calc(var(--nav-height) + 2.5rem) 1.5rem 3rem;
-    }
-
-    @media (max-width: 600px) {
-      .content-wrapper {
-        padding-top: 1rem;
-      }
-    }
-
-    h1, h2, h3 {
-      font-family: 'Noto Serif', Georgia, serif;
-      color: var(--heading-color);
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    p { margin: 0.5em 0; }
-
-    a {
-      color: var(--accent);
       text-decoration: none;
-      transition: opacity 0.2s;
     }
 
-    a:hover {
-      opacity: 0.8;
-      text-decoration: underline;
+    .theme-toggle {
+      min-width: 2.4rem;
+      min-height: 2.4rem;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition:
+        border-color 180ms var(--ease-out),
+        background-color 180ms var(--ease-out),
+        color 180ms var(--ease-out);
     }
 
-    ul {
-      padding-left: 1.4em;
-      margin: 0.5em 0;
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
     }
 
-    li { margin: 0.3em 0; }
-    ul li::marker { color: var(--accent); }
+    .page-shell {
+      position: relative;
+      z-index: 1;
+      width: min(var(--content-width), calc(100% - 3rem));
+      margin: 0 auto;
+      padding: calc(var(--nav-height) + 4.75rem) 0 5rem;
+    }
 
-    strong {
-      color: var(--heading-color);
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.7fr);
+      gap: clamp(2rem, 7vw, 6rem);
+      align-items: end;
+      padding-bottom: 2.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .eyebrow,
+    .section-kicker {
+      margin: 0 0 0.8rem;
+      color: var(--accent);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    h1,
+    h2 {
+      font-family: "Newsreader", Georgia, serif;
       font-weight: 600;
     }
 
-    hr {
-      border: none;
-      border-bottom: 1px solid var(--border);
-      margin: 2rem 0;
+    h1 {
+      max-width: 720px;
+      font-size: clamp(3.25rem, 8vw, 6.25rem);
+      letter-spacing: -0.055em;
+      line-height: 0.86;
+    }
+
+    .hero-intro {
+      max-width: 700px;
+      margin: 1.45rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      line-height: 1.48;
+      text-wrap: pretty;
+    }
+
+    .hero-intro strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .contact-block {
+      display: grid;
+      gap: 0.8rem;
+      align-content: end;
+      padding-bottom: 0.25rem;
+    }
+
+    .contact-block p {
+      margin: 0;
+    }
+
+    .location {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 0.5rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .contact-links a {
+      width: fit-content;
+    }
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .proof-item {
+      padding: 1.25rem 1rem 1.2rem 0;
+    }
+
+    .proof-item + .proof-item {
+      padding-left: 1.25rem;
+      border-left: 1px solid var(--rule);
+    }
+
+    .proof-value {
+      display: block;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 2rem;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .proof-label {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.35;
+    }
+
+    section {
+      padding: 3.25rem 0;
+      border-bottom: 1px solid var(--rule);
+      scroll-margin-top: calc(var(--nav-height) + 1.25rem);
     }
 
     .section-heading {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--heading-color);
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: minmax(150px, 0.34fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
     }
 
-    section { margin: 2.75rem 0; }
-
-    .hero { padding-top: 0.5rem; }
-
-    .hero-name {
-      font-family: 'Noto Serif', Georgia, serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--heading-color);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.035em;
+      line-height: 0.98;
     }
 
-    .hero-title {
-      font-size: 1.1rem;
-      color: var(--text-primary);
-      font-weight: 500;
-      margin: 0.3rem 0 0.5rem;
+    .summary-copy {
+      max-width: 760px;
+      margin: 0;
+      font-size: 1.02rem;
     }
 
-    .section-label {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-bottom: 0.35rem;
+    .summary-copy + .summary-copy {
+      margin-top: 0.9rem;
+      color: var(--muted);
     }
 
-    .hero-location {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.75rem;
+    .timeline {
+      margin-top: 2.1rem;
     }
 
-     .hero-contact {
+    .role {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.34fr) minmax(0, 1fr);
+      gap: 2rem;
+      padding: 1.6rem 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .role-meta {
+      color: var(--muted);
+      font-size: 0.81rem;
+    }
+
+    .role-meta strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+
+    .role h3 {
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+
+    .role ul {
+      margin: 0.8rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .role li {
+      position: relative;
+      margin: 0.52rem 0;
+      padding-left: 1.1rem;
+    }
+
+    .role li::before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: 0.32rem;
+      height: 0.32rem;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .work-list {
+      margin-top: 2rem;
+    }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: minmax(185px, 0.44fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      padding: 1.15rem 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .work-item h3 {
+      font-size: 0.96rem;
+    }
+
+    .work-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .capability-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(250px, 0.75fr);
+      gap: clamp(2.25rem, 7vw, 5.5rem);
+      margin-top: 2rem;
+    }
+
+    .capability-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem 1.1rem;
-      font-size: 0.875rem;
-      align-items: center;
-      margin-top: 0.35rem;
-    }
-
-    .hero-contact a {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .hero-contact span { color: var(--text-secondary); }
-
-    .hero hr { margin: 1.25rem 0 0; }
-
-    .hero-contact-block + .hero-contact-block {
-      margin-top: 0.2rem;
-    }
-
-    @media (max-width: 600px) {
-      .hero-contact {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.35rem;
-        margin-top: 0.35rem;
-      }
-
-      .hero-contact .separator {
-        display: none;
-      }
-
-      .hero-contact-block + .hero-contact-block {
-        margin-top: 0.85rem;
-      }
-    }
-
-    #profile p { font-size: 0.95rem; }
-    #profile p + p { margin-top: 0.6em; }
-
-    .job-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 12px;
-      padding: 1.1rem 1.25rem;
-      margin: 0.9rem 0;
-      box-shadow: var(--surface-inset), var(--surface-shadow);
-    }
-
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .job-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--heading-color);
-    }
-
-    .job-meta {
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .job-company {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-
-    .job-dates {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-top: 0.1rem;
-    }
-
-    .job-card ul { font-size: 0.9rem; }
-    .job-card li { margin: 0.35em 0; }
-
-    @media (max-width: 500px) {
-      .job-header { flex-direction: column; gap: 0.2rem; }
-      .job-meta { text-align: left; }
-    }
-
-    .impact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.6rem;
-      margin-top: 0.5rem;
-    }
-
-    @media (max-width: 540px) {
-      .impact-grid { grid-template-columns: 1fr; }
-    }
-
-    .impact-card {
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent-secondary);
-      border-radius: 10px;
-      padding: 0.7rem 1rem;
-      font-size: 0.875rem;
-      color: var(--text-primary);
-      line-height: 1.45;
-      box-shadow: var(--surface-inset), var(--surface-shadow);
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1.75rem;
-    }
-
-    @media (max-width: 540px) {
-      .two-col { grid-template-columns: 1fr; gap: 1.25rem; }
-    }
-
-    .plain-list {
-      list-style: none;
+      gap: 0.55rem;
+      align-content: start;
+      margin: 0;
       padding: 0;
-      margin: 0.5rem 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
+      list-style: none;
     }
 
-    .plain-list li {
+    .capability-list li {
+      padding: 0.45rem 0.65rem;
+      border: 1px solid var(--rule);
+      border-radius: 0.25rem;
+      font-size: 0.82rem;
+    }
+
+    .detail-group + .detail-group {
+      margin-top: 1.35rem;
+    }
+
+    .detail-label {
+      margin: 0 0 0.35rem;
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .detail-group p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .education-line {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.34fr) minmax(0, 1fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .education-line strong {
+      font-size: 0.92rem;
+    }
+
+    .education-line span {
+      color: var(--muted);
       font-size: 0.9rem;
-      color: var(--text-primary);
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .plain-list li::before {
-      content: '–';
-      color: var(--text-secondary);
-      position: absolute;
-      left: 0;
-    }
-
-    .lang-level {
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-    }
-
-    .edu-school {
-      font-weight: 600;
-      color: var(--heading-color);
-      font-size: 0.95rem;
-    }
-
-    .edu-degree {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      margin-top: 0.2rem;
     }
 
     footer {
-      text-align: center;
-      padding: 1.5rem 1rem 2.5rem;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
+      position: relative;
+      z-index: 1;
+      width: min(var(--content-width), calc(100% - 3rem));
+      margin: 0 auto;
+      padding: 1.6rem 0 2.6rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .resume-atlas {
+      position: fixed;
+      z-index: 0;
+      inset: var(--nav-height) 0 0;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0.68;
+      -webkit-mask-image: linear-gradient(180deg, black 0%, black 72%, rgba(0, 0, 0, 0.82) 84%, transparent 100%);
+      mask-image: linear-gradient(180deg, black 0%, black 72%, rgba(0, 0, 0, 0.82) 84%, transparent 100%);
+      transform: translate3d(var(--atlas-x, 0), var(--atlas-y, 0), 0);
+      transition: opacity 220ms var(--ease-out);
+      will-change: transform;
+    }
+
+    .resume-atlas::before {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--atlas-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--atlas-line) 1px, transparent 1px);
+      background-size: 64px 64px;
+      content: "";
+      mask-image:
+        linear-gradient(90deg, black 0%, rgba(0, 0, 0, 0.72) 18%, transparent 42%, transparent 58%, rgba(0, 0, 0, 0.72) 82%, black 100%),
+        linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.62) 62%, transparent 100%);
+      opacity: 0.62;
+      transform: perspective(1100px) rotateX(66deg) rotateZ(-8deg) scale(1.18);
+      transform-origin: 50% 34%;
+    }
+
+    .resume-atlas::after {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 8% 30%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 22%),
+        radial-gradient(circle at 92% 48%, color-mix(in srgb, var(--signal) 8%, transparent), transparent 24%);
+      content: "";
+    }
+
+    :root[data-theme="light"] .resume-atlas {
+      opacity: 0.82;
+    }
+
+    :root[data-theme="light"] .resume-atlas::before {
+      opacity: 0.78;
+    }
+
+    :root[data-theme="light"] .resume-atlas::after {
+      background:
+        radial-gradient(circle at 8% 30%, rgba(189, 78, 39, 0.13), transparent 25%),
+        radial-gradient(circle at 92% 48%, rgba(47, 110, 86, 0.12), transparent 27%);
+    }
+
+    .resume-atlas svg {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: max(100%, 1500px);
+      height: 100%;
+      overflow: visible;
+      mask-image: linear-gradient(90deg, black 0%, rgba(0, 0, 0, 0.86) 25%, rgba(0, 0, 0, 0.12) 44%, rgba(0, 0, 0, 0.12) 56%, rgba(0, 0, 0, 0.86) 75%, black 100%);
+      transform: translateX(-50%);
+    }
+
+    .atlas-path,
+    .atlas-path-muted {
+      fill: none;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .atlas-path {
+      stroke: var(--atlas-accent);
+      stroke-width: 1.7;
+    }
+
+    .atlas-path-muted {
+      stroke: var(--atlas-line);
+      stroke-width: 1;
+      stroke-dasharray: 7 11;
+    }
+
+    .atlas-node {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      background: var(--paper);
+      box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 7%, transparent);
+      animation: atlas-pulse 7s ease-in-out infinite alternate;
+    }
+
+    .atlas-node:nth-of-type(1) {
+      top: 23%;
+      left: 6%;
+    }
+
+    .atlas-node:nth-of-type(2) {
+      top: 55%;
+      left: 17%;
+      animation-delay: -2.1s;
+    }
+
+    .atlas-node:nth-of-type(3) {
+      top: 31%;
+      left: 87%;
+      border-color: var(--signal);
+      animation-delay: -4.2s;
+    }
+
+    .atlas-node:nth-of-type(4) {
+      top: 66%;
+      left: 94%;
+      animation-delay: -5.1s;
+    }
+
+    .atlas-node:nth-of-type(5) {
+      top: 78%;
+      left: 79%;
+      border-color: var(--signal);
+      animation-delay: -3.2s;
+    }
+
+    @keyframes atlas-pulse {
+      from {
+        opacity: 0.58;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1.08);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-nav {
+        position: static;
+        height: auto;
+        padding: 1rem 1.5rem;
+        border-bottom-color: var(--rule);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .page-shell {
+        width: min(100% - 2rem, var(--content-width));
+        padding-top: 3.25rem;
+      }
+
+      .hero,
+      .section-heading,
+      .role,
+      .education-line {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 18vw, 5rem);
+      }
+
+      .proof-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .proof-item:nth-child(3) {
+        border-left: 0;
+      }
+
+      .proof-item:nth-child(n + 3) {
+        border-top: 1px solid var(--rule);
+      }
+
+      section {
+        padding: 2.5rem 0;
+      }
+
+      .role {
+        padding: 1.35rem 0;
+      }
+
+      .work-item,
+      .capability-layout {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+      }
+
+      .resume-atlas {
+        inset: 4.5rem -35vw auto auto;
+        right: -35vw;
+        width: 170vw;
+        height: 58vh;
+        opacity: 0.32;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 10mm 11mm;
     }
 
     @media print {
-      :root {
-        --bg-primary:       #ffffff;
-        --bg-secondary:     #f5f5f5;
-        --bg-tertiary:      #eeeeee;
-        --text-primary:     #111111;
-        --text-secondary:   #444444;
-        --heading-color:    #000000;
-        --accent:           #1a56e0;
-        --accent-secondary: #6b21d0;
-        --border:           #cccccc;
+      :root,
+      :root[data-theme="light"] {
+        color-scheme: light;
+        --paper: #ffffff;
+        --paper-raised: #ffffff;
+        --ink: #151515;
+        --muted: #505050;
+        --rule: #bcbcbc;
+        --accent: #a83f20;
+        --accent-soft: #783b27;
+        --signal: #245c46;
       }
 
-      body { font-size: 11pt; line-height: 1.5; }
-      #navbar, .mobile-menu-toggle, .mobile-menu, footer { display: none !important; }
-      .content-wrapper { padding-top: 0; max-width: 100%; }
-      .job-card, .impact-card { break-inside: avoid; }
-      section { margin: 1.25rem 0; }
-      .hero-name { font-size: 20pt; }
+      html,
+      body {
+        background: #ffffff;
+      }
+
+      body {
+        font-size: 8.7pt;
+        line-height: 1.34;
+      }
+
+      .site-nav,
+      .skip-link,
+      .pdf-download-link,
+      .resume-atlas,
+      body::after,
+      footer {
+        display: none !important;
+      }
+
+      .page-shell {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1.65fr) minmax(180px, 0.62fr);
+        gap: 8mm;
+        padding-bottom: 5mm;
+      }
+
+      h1 {
+        font-size: 33pt;
+      }
+
+      .eyebrow,
+      .section-kicker {
+        margin-bottom: 2mm;
+        font-size: 6.8pt;
+      }
+
+      .hero-intro {
+        margin-top: 3mm;
+        font-size: 9.8pt;
+        line-height: 1.35;
+      }
+
+      .contact-block {
+        gap: 2mm;
+      }
+
+      .contact-links {
+        gap: 1.2mm;
+        font-size: 7.7pt;
+      }
+
+      .location {
+        font-size: 7.5pt;
+      }
+
+      .proof-item {
+        padding: 3mm 2mm 3mm 0;
+      }
+
+      .proof-item + .proof-item {
+        padding-left: 3mm;
+      }
+
+      .proof-value {
+        font-size: 17pt;
+      }
+
+      .proof-label {
+        margin-top: 1mm;
+        font-size: 6.6pt;
+      }
+
+      section {
+        padding: 5mm 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 36mm 1fr;
+        gap: 6mm;
+      }
+
+      .section-heading h2 {
+        font-size: 18pt;
+      }
+
+      .summary-copy {
+        font-size: 8.9pt;
+      }
+
+      .summary-copy + .summary-copy {
+        margin-top: 2mm;
+      }
+
+      .timeline {
+        margin-top: 4mm;
+      }
+
+      .role {
+        grid-template-columns: 36mm 1fr;
+        gap: 6mm;
+        padding: 3.5mm 0;
+        break-inside: avoid;
+      }
+
+      .role-meta,
+      .role-meta strong {
+        font-size: 7.3pt;
+      }
+
+      .role h3 {
+        font-size: 8.8pt;
+      }
+
+      .role ul {
+        margin-top: 1.5mm;
+      }
+
+      .role li {
+        margin: 1.2mm 0;
+        padding-left: 3mm;
+      }
+
+      .work-list,
+      .capability-layout {
+        margin-top: 4mm;
+      }
+
+      .work-item {
+        grid-template-columns: 45mm 1fr;
+        gap: 4mm;
+        padding: 3mm 0;
+        break-inside: avoid;
+      }
+
+      .work-item h3 {
+        font-size: 8.4pt;
+      }
+
+      .work-item p {
+        font-size: 8pt;
+      }
+
+      .capability-layout {
+        grid-template-columns: 1.35fr 0.8fr;
+        gap: 8mm;
+      }
+
+      .capability-list {
+        gap: 1.5mm;
+      }
+
+      .capability-list li {
+        padding: 1.2mm 1.8mm;
+        font-size: 7.2pt;
+      }
+
+      .detail-group + .detail-group {
+        margin-top: 3mm;
+      }
+
+      .detail-label {
+        margin-bottom: 1mm;
+        font-size: 6.5pt;
+      }
+
+      .detail-group p,
+      .education-line span,
+      .education-line strong {
+        font-size: 7.6pt;
+      }
+
+      .education-line {
+        grid-template-columns: 36mm 1fr;
+        gap: 6mm;
+        margin-top: 3mm;
+        padding-top: 3mm;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to resume</a>
 
-<nav id="navbar">
-  <a class="nav-name" href="#top">Aleksandr Detushev</a>
-  <div class="nav-right">
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#profile">Profile</a></li>
-      <li><a href="#experience">Work Experience</a></li>
-      <li><a href="#skills">Skills &amp; Tools</a></li>
-    </ul>
-    <div class="theme-toggle" aria-label="Theme switcher">
-      <button class="theme-option" data-theme-value="light" type="button">Light</button>
-      <button class="theme-option" data-theme-value="dark" type="button">Dark</button>
-    </div>
+  <div class="resume-atlas" aria-hidden="true">
+    <svg viewBox="0 0 2200 720" preserveAspectRatio="xMidYMid slice">
+      <path class="atlas-path" d="M-60 512 C 150 314, 286 420, 456 248 S 700 112, 860 210" />
+      <path class="atlas-path-muted" d="M-20 168 C 162 236, 316 84, 540 176 S 712 382, 918 328" />
+      <path class="atlas-path-muted" d="M74 650 C 286 516, 446 628, 650 448 S 788 308, 958 402" />
+      <path class="atlas-path" d="M1370 522 C 1550 360, 1666 438, 1818 286 S 2040 168, 2260 58" />
+      <path class="atlas-path-muted" d="M1328 176 C 1534 246, 1644 92, 1844 190 S 2052 430, 2250 348" />
+      <path class="atlas-path-muted" d="M1290 640 C 1498 520, 1650 610, 1850 452 S 2050 302, 2246 438" />
+    </svg>
+    <i class="atlas-node"></i>
+    <i class="atlas-node"></i>
+    <i class="atlas-node"></i>
+    <i class="atlas-node"></i>
+    <i class="atlas-node"></i>
   </div>
-</nav>
-<button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
-<ul class="mobile-menu" id="mobile-menu">
-  <li class="mobile-only"><a href="#top">Top</a></li>
-  <li><a href="#profile">Profile</a></li>
-  <li><a href="#experience">Work Experience</a></li>
-  <li><a href="#skills">Skills &amp; Tools</a></li>
-  <li class="mobile-theme">
-    <span class="mobile-theme-label">Theme</span>
-    <div class="theme-toggle" aria-label="Theme switcher in mobile menu">
-      <button class="theme-option" data-theme-value="light" type="button">Light</button>
-      <button class="theme-option" data-theme-value="dark" type="button">Dark</button>
-    </div>
-  </li>
-</ul>
 
-<div class="content-wrapper" id="top">
-
-  <header class="hero">
-    <div class="hero-name">Aleksandr Detushev</div>
-    <div class="hero-title">Lead Game Designer | 6+ years | MMORPG, Live Ops, Systems Design, Economy &amp; Progression</div>
-    <div class="hero-location">Podgorica, Montenegro &nbsp;·&nbsp; Open to relocation</div>
-
-    <div class="hero-contact hero-contact-block">
-      <span>+382-68-541-158</span>
-      <span class="separator">·</span>
-      <a href="mailto:Sashadetush@gmail.com">Sashadetush@gmail.com</a>
-    </div>
-
-    <div class="hero-contact hero-contact-block">
-      <a href="https://www.linkedin.com/in/aleksandr-detushev-aa2945234" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="separator">·</span>
-      <a href="https://akiokoneko.github.io/portfolio/" target="_blank" rel="noopener">Game Design Portfolio</a>
-      <span class="separator">·</span>
-      <a href="./Aleksandr_Detushev_Resume.pdf">Download PDF</a>
-    </div>
-
-    <hr />
-  </header>
-
-  <section id="profile">
-    <div class="section-heading">Profile</div>
-    <p>
-      Lead Game Designer with 6+ years of experience on Warspear Online, a live-service 2D MMORPG with 5M+ downloads,
-      20+ playable classes, and deep progression systems.
-    </p>
-    <p>
-      Specializing in systems design, Live Ops, and long-term player engagement, with focus on class design, combat balance,
-      progression loops, guild systems, and economy-driven design.
-    </p>
-    <p>
-      Currently leading a team of 3 designers, owning system design and feature direction while remaining hands-on with
-      encounter design and implementation.
-    </p>
-    <p>
-      Designed and evolved interconnected systems where progression, economy, and balance directly impact retention,
-      monetization, and long-term player trust. Improved design department workflows, cross-team handoffs, documentation
-      standards, and internal editors/tools to make live content and system implementation faster and clearer.
-    </p>
-  </section>
-
-  <section id="experience">
-    <div class="section-heading">Work Experience</div>
-
-    <div class="job-card">
-      <div class="job-header">
-        <div class="job-title">Lead Game Designer</div>
-        <div class="job-meta">
-          <div class="job-company">Aigrind — Warspear Online</div>
-          <div class="job-dates">2022 – Present</div>
-        </div>
-      </div>
-      <ul>
-        <li>Lead and mentor a team of 3 game designers, coordinating work across Live Ops updates, feature ownership, and cross-team delivery.</li>
-        <li>Drive feature development from concept to release, translating high-level goals into implementation-ready systems and prioritizing within live production constraints.</li>
-        <li>Own class balance across a 20-class roster, competitive guild raids, the talent system, non-combat guild progression, and seasonal content delivery.</li>
-        <li>Collaborate cross-functionally with engineering, art, UI/UX, and product to align design vision with technical and production realities.</li>
-        <li>Improved internal workflows through structured reviews, clearer documentation standards, and more efficient cross-team handoffs.</li>
-        <li>Improved internal editors and design tooling with clearer data flows, validation, and implementation-ready content structures.</li>
-        <li>Deliver regular balance updates in a live economy where changes directly impact player investment, retention, and monetization, requiring careful trust management.</li>
-        <li>Remain hands-on with systems design, encounter design, gameplay logic, and documentation alongside leadership responsibilities.</li>
+  <nav class="site-nav" aria-label="Resume navigation">
+    <a class="nav-name" href="#top">Aleksandr Detushev</a>
+    <div class="nav-actions">
+      <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#selected-work">Selected work</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="./output/pdf/Aleksandr_Detushev_Resume.pdf">PDF</a></li>
       </ul>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">Theme</button>
     </div>
+  </nav>
 
-    <div class="job-card">
-      <div class="job-header">
-        <div class="job-title">Senior Game Designer</div>
-        <div class="job-meta">
-          <div class="job-company">Aigrind — Warspear Online</div>
-          <div class="job-dates">2019 – 2022</div>
-        </div>
-      </div>
-      <ul>
-        <li>Designed and balanced 4 new playable classes (Templar, Chieftain, Beastmaster, Reaper) for a live MMORPG with a 20-class roster, owning class identity, skill kits, gameplay roles, and long-term balance.</li>
-        <li>Defined distinct design goals for each class, expanding gameplay variety and player segments: faction control, new weapon demand, onboarding-friendly gameplay, and transformation-based mechanics with custom UI.</li>
-        <li>Created new itemization demand through class-specific gear paths such as dual magical maces and two-handed spears while preserving existing player progression and economy balance.</li>
-        <li>Led large-scale class rebalances, shifting from direct nerfs to gameplay-loop changes and alternative buffs to maintain player trust and long-term engagement.</li>
-        <li>Analyzed community sentiment, class usage trends, and monetization signals to guide balance decisions and manage meta shifts in a live environment.</li>
-        <li>Rebuilt the Talent system into a core progression pillar, introducing per-class trees, multi-source daily caps, and talents that modify skill behavior rather than flat stats.</li>
-      </ul>
-    </div>
-
-    <div class="job-card">
-      <div class="job-header">
-        <div class="job-title">Game Designer</div>
-        <div class="job-meta">
-          <div class="job-company">Aigrind — Warspear Online</div>
-          <div class="job-dates">2017 – 2019</div>
-        </div>
-      </div>
-      <ul>
-        <li>Designed seasonal events and dungeons for a live MMORPG with a regular update cadence.</li>
-        <li>Reworked dungeon structure and encounter pacing to reduce repetition across yearly content cycles and keep repeatable content feeling fresh over time.</li>
-        <li>Prepared implementation-ready design documentation and collaborated closely with programmers and artists to ship content under tight live deadlines.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-heading">Selected Systems</div>
-
-    <div class="impact-grid">
-      <div class="impact-card">
-        <strong>Talent System</strong><br />
-        Rebuilt the talent system into a core long-term progression pillar, introducing per-class and per-guild talent trees with multi-source, daily-capped progression. Designed talents to modify skill behavior instead of flat stats, enabling meaningful build diversity.
-      </div>
-      <div class="impact-card">
-        <strong>Competitive Guild Content</strong><br />
-        Co-designed the competitive guild raid system and fully owned encounter design. Developed seasonal raid showdowns with up to 15 difficulty tiers, leaderboard-based progression, staged mechanic escalation, and strong economy sinks through preparation demand.
-      </div>
-      <div class="impact-card">
-        <strong>Class Ecosystem & Live Balance</strong><br />
-        Managed live balance across a 20-class roster in a high-investment environment. Shifted balance strategy from direct nerfs to gameplay-loop adjustments and alternative buffs, preserving player trust while guiding meta evolution.
-      </div>
-      <div class="impact-card">
-        <strong>Live Content Design</strong><br />
-        Designed and iterated on seasonal events, dungeons, and repeatable content systems within a regular Live Ops cadence, maintaining long-term engagement through post-release tuning.
-      </div>
-      <div class="impact-card">
-        <strong>Catacombs (PvPvE Mode)</strong><br />
-        Designed a session-based PvPvE extraction mode combining PvE progression with high-risk PvP loss conditions, lobby registration, group-based hostility rules, timed extraction, and dedicated reward storage.
-      </div>
-      <div class="impact-card">
-        <strong>Non-Combat Guild Systems</strong><br />
-        Designed three parallel daily progression systems, each with a distinct gameplay loop, integrated with guild talent trees to deepen long-term engagement without increasing combat complexity.
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="section-heading">Skills &amp; Tools</div>
-
-    <div class="impact-grid">
-      <div class="impact-card">Systems Design (Live Service / Live Ops)</div>
-      <div class="impact-card">Class Design &amp; Balance (20-class MMORPG)</div>
-      <div class="impact-card">Game Economy &amp; Monetization Systems</div>
-      <div class="impact-card">Progression Systems &amp; Build Diversity</div>
-      <div class="impact-card">PvE / PvP Systems Design</div>
-      <div class="impact-card">Guild &amp; Social Systems</div>
-      <div class="impact-card">Retention &amp; Engagement Design</div>
-      <div class="impact-card">Feature Ownership (Concept to Release)</div>
-      <div class="impact-card">Cross-functional Collaboration (Design / Engineering / Art / UX)</div>
-      <div class="impact-card">Team Leadership &amp; Mentorship</div>
-      <div class="impact-card">Live Content Delivery &amp; Iteration</div>
-      <div class="impact-card">Internal Tools &amp; Workflow Improvement</div>
-    </div>
-
-    <div class="two-col">
+  <main class="page-shell" id="main">
+    <header class="hero" id="top">
       <div>
-        <div class="section-label">Tools</div>
-        <ul class="plain-list">
-
-          <li>Confluence</li>
-          <li>Google Sheets (data tracking, balancing)</li>
-          <li>Figma</li>
-          <li>Redmine</li>
-          <li>MySQL Workbench</li>
-          <li>TortoiseSVN</li>
-          <li>Unity (hobby / prototyping)</li>
-        </ul>
+        <p class="eyebrow">Lead Game Designer · Live-Service MMORPGs</p>
+        <h1>Aleksandr<br />Detushev</h1>
+        <p class="hero-intro">
+          I design and ship <strong>systems, content, balance, and tools</strong> for long-running online games.
+          I currently lead a team of three while staying hands-on from the first design question through live iteration.
+        </p>
       </div>
 
-      <div>
-        <div class="section-label">Languages</div>
-        <ul class="plain-list">
-          <li>Russian <span class="lang-level">— Native</span></li>
-          <li>English <span class="lang-level">— Professional working proficiency</span></li>
-        </ul>
+      <div class="contact-block">
+        <p class="location">Podgorica, Montenegro<br />Open to relocation</p>
+        <div class="contact-links">
+          <a href="mailto:Sashadetush@gmail.com">Sashadetush@gmail.com</a>
+          <a href="tel:+38268541158">+382 68 541 158</a>
+          <a href="https://www.linkedin.com/in/aleksandr-detushev-aa2945234" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://akiokoneko.github.io/portfolio/" target="_blank" rel="noopener">Game Design Portfolio</a>
+          <a class="pdf-download-link" href="./output/pdf/Aleksandr_Detushev_Resume.pdf">Download PDF</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="proof-strip" aria-label="Career highlights">
+      <div class="proof-item">
+        <span class="proof-value">8+</span>
+        <span class="proof-label">years in live game development</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-value">4</span>
+        <span class="proof-label">playable classes designed and shipped</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-value">20</span>
+        <span class="proof-label">classes in the live balance roster</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-value">3</span>
+        <span class="proof-label">game designers led and mentored</span>
       </div>
     </div>
-  </section>
 
-  <section id="education">
-    <div class="section-heading">Education</div>
-    <div class="edu-school">Saint Petersburg State University of Aerospace Instrumentation (SUAI)</div>
-    <div class="edu-degree">Computer Science (unfinished degree)</div>
-  </section>
+    <section id="summary">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Profile</p>
+          <h2>Broad by practice</h2>
+        </div>
+        <div>
+          <p class="summary-copy">
+            Lead Game Designer with 8+ years on Warspear Online, an 18-year live-service MMORPG with
+            10M+ Google Play downloads. My work spans systems, progression, economy, PvE and PvP,
+            encounters, live content, analytics requirements, internal tools, and team leadership.
+          </p>
+          <p class="summary-copy">
+            I work directly with engineers, artists, UI/UX, product, QA, and other leads. I am comfortable
+            owning a feature end to end: defining the player and product problem, making the design concrete,
+            supporting implementation, and responding to what happens after release.
+          </p>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section id="experience">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">2017 to present</p>
+          <h2>Experience</h2>
+        </div>
+        <p class="summary-copy">
+          All three roles are at Aigrind on Warspear Online. The scope grew from hands-on live content to
+          ownership of major systems, team direction, and cross-discipline delivery.
+        </p>
+      </div>
 
-<footer>
-  © 2026 Aleksandr Detushev
-</footer>
+      <div class="timeline">
+        <article class="role">
+          <div class="role-meta">
+            <strong>Aigrind</strong>
+            Warspear Online<br />
+            2022 to present
+          </div>
+          <div>
+            <h3>Lead Game Designer</h3>
+            <ul>
+              <li>Lead and mentor three game designers, set priorities, review work, and keep ownership clear across live releases.</li>
+              <li>Own design direction across class balance, raids, progression, PvE/PvP systems, seasonal content, and internal tools while remaining hands-on.</li>
+              <li>Lead balance work across the 20-class roster, setting direction and reviewing the rebalances produced by my team.</li>
+              <li>Conceived and designed the competitive guild raid system, then led its encounters, seasonal iterations, difficulty progression, and delivery personally or through my team.</li>
+              <li>Work directly with engineering, art, UI/UX, product, QA, and other leads from concept and specification through implementation and live iteration.</li>
+              <li>Improved editors, validation, review practices, and telemetry requirements so designers can ship and evaluate complex content more reliably.</li>
+            </ul>
+          </div>
+        </article>
 
-<script>
-  const navbar = document.getElementById('navbar');
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const THEME_STORAGE_KEY = 'portfolio_theme';
-  const prefersLightQuery = window.matchMedia('(prefers-color-scheme: light)');
-  const themeOptionButtons = document.querySelectorAll('.theme-option[data-theme-value]');
-  const hasSavedThemePreference = localStorage.getItem(THEME_STORAGE_KEY) !== null;
+        <article class="role">
+          <div class="role-meta">
+            <strong>Aigrind</strong>
+            Warspear Online<br />
+            2019 to 2022
+          </div>
+          <div>
+            <h3>Senior Game Designer</h3>
+            <ul>
+              <li>Designed and shipped four playable classes end to end: Templar, Chieftain, Beastmaster, and Reaper. The <a href="https://forum.warspear-online.com/index.php?/topic/390959-20221229-%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-2022-%D0%B3%D0%BE%D0%B4%D0%B0-%D0%B2-%D0%B8%D0%BD%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B5/">official 2022 annual report</a> recorded 147,776 Reapers and 84,861 Beastmasters created.</li>
+              <li>Rebuilt the Talent system into a core progression layer with class trees, multiple progression sources, daily caps, and talents that change skill behavior.</li>
+              <li>Led large class rebalances and used player feedback plus available usage and economy data to adjust the meta without ignoring existing player investment.</li>
+              <li>Designed new reporting and telemetry requirements for live systems, including event participation, dungeon room completion, completion time, failure rate, and class-level breakdowns.</li>
+            </ul>
+          </div>
+        </article>
 
-  function setTheme(theme, persist = true) {
-    document.documentElement.setAttribute('data-theme', theme);
+        <article class="role">
+          <div class="role-meta">
+            <strong>Aigrind</strong>
+            Warspear Online<br />
+            2017 to 2019
+          </div>
+          <div>
+            <h3>Game Designer</h3>
+            <ul>
+              <li>Designed and shipped seasonal events, dungeons, encounters, and repeatable content for a regular live update cadence.</li>
+              <li>Reworked dungeon structure and pacing to reduce repetition across recurring yearly content.</li>
+              <li>Wrote implementation-ready design documentation and worked closely with programmers and artists under live production deadlines.</li>
+              <li>Contributed to editor and content-pipeline improvements that made recurring production faster and less error-prone.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    themeOptionButtons.forEach((button) => {
-      const isActive = button.dataset.themeValue === theme;
-      button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    <section id="selected-work">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Selected work</p>
+          <h2>What I own</h2>
+        </div>
+        <p class="summary-copy">
+          A compact view of the work most relevant to senior and lead systems-design roles.
+          Full case studies and design reasoning are in the portfolio.
+        </p>
+      </div>
+
+      <div class="work-list">
+        <article class="work-item">
+          <h3>Playable classes and live balance</h3>
+          <p>
+            Four shipped classes with distinct kits and technical requirements, followed by continuing direction
+            across a 20-class live roster and the team member who now executes the current rebalance work.
+          </p>
+        </article>
+        <article class="work-item">
+          <h3>Progression and guild systems</h3>
+          <p>
+            Class and guild talent trees, knowledge-based progression, daily caps, build choices, and three
+            parallel non-combat guild loops built for long-term participation.
+          </p>
+        </article>
+        <article class="work-item">
+          <h3>Competitive guild raids</h3>
+          <p>
+            Conceived the system and its competitive format, then led encounter design, seasonal iterations,
+            difficulty progression, and delivery personally or through my team.
+          </p>
+        </article>
+        <article class="work-item">
+          <h3>PvE, PvP, and hybrid content</h3>
+          <p>
+            Seasonal dungeons, world bosses, guild events, arena and GvG work, plus Catacombs:
+            a session-based PvPvE extraction mode with risk, loss, and timed escape.
+          </p>
+        </article>
+        <article class="work-item">
+          <h3>Design tools and telemetry</h3>
+          <p>
+            Monster, dungeon, quest, talent, and link-editor improvements; reporting specifications for
+            completion, failure, time, reward distribution, class segments, and live-event participation.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Capabilities</p>
+          <h2>Useful across the stack</h2>
+        </div>
+        <p class="summary-copy">
+          My strongest fit is a role where system thinking, practical production work, and communication across
+          disciplines all matter.
+        </p>
+      </div>
+
+      <div class="capability-layout">
+        <ul class="capability-list" aria-label="Core capabilities">
+          <li>Systems design</li>
+          <li>Feature ownership</li>
+          <li>Class design and balance</li>
+          <li>Progression</li>
+          <li>Economy and rewards</li>
+          <li>PvE and encounter design</li>
+          <li>PvP and competitive systems</li>
+          <li>Live Ops</li>
+          <li>Telemetry requirements</li>
+          <li>Internal design tools</li>
+          <li>Team leadership</li>
+          <li>Cross-functional delivery</li>
+          <li>Documentation and review</li>
+        </ul>
+
+        <div>
+          <div class="detail-group">
+            <p class="detail-label">Tools</p>
+            <p>Confluence, Google Sheets, Figma, Redmine, MySQL Workbench, TortoiseSVN, Unity for prototypes</p>
+          </div>
+          <div class="detail-group">
+            <p class="detail-label">Languages</p>
+              <p>Russian: native<br />English: strong reading and listening comprehension; improving written English</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="education-line">
+        <strong>Education</strong>
+        <span>Saint Petersburg State University of Aerospace Instrumentation (SUAI), Computer Science, unfinished degree</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Aleksandr Detushev</footer>
+
+  <script>
+    const nav = document.querySelector(".site-nav");
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeKey = "resume_theme";
+
+    function updateThemeLabel() {
+      const current = document.documentElement.dataset.theme || "dark";
+      themeToggle.textContent = current === "dark" ? "Light" : "Dark";
+      themeToggle.setAttribute("aria-pressed", String(current === "light"));
+      themeToggle.setAttribute(
+        "aria-label",
+        current === "dark" ? "Switch to light theme" : "Switch to dark theme",
+      );
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem(themeKey, next);
+      updateThemeLabel();
     });
 
-    if (persist) {
-      localStorage.setItem(THEME_STORAGE_KEY, theme);
-    }
-  }
+    window.addEventListener(
+      "scroll",
+      () => {
+        nav.classList.toggle("is-scrolled", window.scrollY > 16);
+      },
+      { passive: true },
+    );
 
-  function handleSystemThemeChange(event) {
-    if (hasSavedThemePreference) {
-      return;
-    }
-    setTheme(event.matches ? 'light' : 'dark', false);
-  }
+    const finePointer = window.matchMedia("(pointer: fine)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let atlasFrame = 0;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 12) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
+    window.addEventListener(
+      "pointermove",
+      (event) => {
+        if (!finePointer.matches || reducedMotion.matches) return;
+        window.cancelAnimationFrame(atlasFrame);
+        atlasFrame = window.requestAnimationFrame(() => {
+          const x = (event.clientX / window.innerWidth - 0.5) * 16;
+          const y = (event.clientY / window.innerHeight - 0.5) * 10;
+          document.documentElement.style.setProperty("--atlas-x", `${x}px`);
+          document.documentElement.style.setProperty("--atlas-y", `${y}px`);
+        });
+      },
+      { passive: true },
+    );
 
-  mobileMenuToggle.addEventListener('click', (event) => {
-    event.stopPropagation();
-    const isOpen = mobileMenu.classList.toggle('open');
-    mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-
-  mobileMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-      mobileMenu.classList.remove('open');
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  themeOptionButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      setTheme(button.dataset.themeValue);
-    });
-  });
-
-  if (typeof prefersLightQuery.addEventListener === 'function') {
-    prefersLightQuery.addEventListener('change', handleSystemThemeChange);
-  } else if (typeof prefersLightQuery.addListener === 'function') {
-    prefersLightQuery.addListener(handleSystemThemeChange);
-  }
-
-  setTheme(document.documentElement.getAttribute('data-theme') || 'dark', false);
-</script>
-
+    updateThemeLabel();
+  </script>
 </body>
 </html>
